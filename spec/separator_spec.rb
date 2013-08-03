@@ -35,4 +35,19 @@ describe Sep::Separator do
       end
     end
   end
+
+  describe "#words" do
+  end
+
+  describe "#leading_space" do
+    subject { described_class.new(text).leading_space }
+
+    it { should == "\n\n" }
+  end
+
+  describe "#whitespace" do
+    subject { described_class.new(text).whitespace.slice(0, 10) }
+
+    it { should match_array(["\n\n", "\n\n", "\n"]) }
+  end
 end

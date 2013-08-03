@@ -11,6 +11,14 @@ module Sep
       analyze
     end
 
+    def leading_space
+      original_text.match(/(\s*)/).captures[0]
+    end
+
+    def whitespace
+      [leading_space] + words_data.map {|wd| wd[:space_post] }
+    end
+
     private
 
     def scanned_text
