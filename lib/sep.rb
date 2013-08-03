@@ -2,5 +2,7 @@ require "sep/version"
 require "sep/separator"
 
 module Sep
-  # Your code goes here...
+  def self.load(text)
+    Separator.new(text)
+  end
 end

@@ -1,20 +1,19 @@
 require "spec_helper"
 
 describe Sep::Separator do
-  let(:text) do 
-    path = File.expand_path("../support/text", __FILE__)
-    File.read(path)
-  end
+  let(:text) { RSpec::Sep.text }
 
-  describe "#source" do
-    subject { described_class.new(text).source }
+  let(:sep) { described_class.new(text) }
+
+  describe "#original_text" do
+    subject { sep.original_text }
 
     it { should be_a(String) }
   end
 
-  describe "#separate" do
-    let(:words) { described_class.new(text).separate }
-  
+  describe "#words_data" do
+    let(:words) { described_class.new(text).words_data }
+
     subject { words }
 
     it { should be_an(Array) }
@@ -22,9 +21,9 @@ describe Sep::Separator do
     describe "element" do
       subject { words.first }
 
-      it { should be_a(Hash) } 
+      it { should be_a(Hash) }
 
-      describe "keys" do 
+      describe "keys" do
         specify ":punc_pre, :word, :punc_post, :space_post" do
           # Convoluted example description parsing
           keys = example.metadata[:description_args][0]
@@ -34,12 +33,6 @@ describe Sep::Separator do
           subject.keys.should include(*keys.map(&:to_sym))
         end
       end
-
-      #describe "values" do
-      #  it "check" do
-      #    words.first[:punc_pre
-      #  end
-      #end
     end
   end
 end
