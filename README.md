@@ -1,12 +1,13 @@
 # Sep
+[![Build Status](https://travis-ci.org/drichert/sep.png?branch=master)](https://travis-ci.org/drichert/sep)
 
-TODO: Write a gem description
+Separates strings, parses punctuation and spacing
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'sep'
+    gem "sep"
 
 And then execute:
 
@@ -21,8 +22,8 @@ Or install it yourself as:
 ```ruby
 text = '   "I doubt, therefore I think, therefore I am."'
 
-# Separate text 
-sep = Sep.load(text) 
+# Separate text
+sep = Sep.load(text)
 
 sep.words_data
 #=> [
