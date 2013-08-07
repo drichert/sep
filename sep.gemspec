@@ -12,6 +12,8 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Separate and reassemble strings based on whitespace}
   gem.homepage      = "https://github.com/drichert/sep"
 
+  gem.add_dependency("rake")
+
   gem.add_development_dependency("rspec")
 
   gem.files         = `git ls-files`.split($/)
