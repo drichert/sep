@@ -8,9 +8,10 @@ Gem::Specification.new do |gem|
   gem.version       = Sep::VERSION
   gem.authors       = ["Dan Richert"]
   gem.email         = ["dan.richert@gmail.com"]
-  gem.description   = %q{Separates strings and puts them back together}
-  gem.summary       = %q{Separate and reassemble strings based on whitespace}
+  gem.description   = %q{Separates strings, parses punctuation and spacing}
+  gem.summary       = %q{String separator}
   gem.homepage      = "https://github.com/drichert/sep"
+  gem.license       = "MIT"
 
   gem.add_dependency("rake")
 
