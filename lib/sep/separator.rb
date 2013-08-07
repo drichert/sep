@@ -1,28 +1,32 @@
 module Sep
   class Separator
-    attr_reader :original_text, :words_data
+    attr_reader :text, :words_data
 
     ANALYSIS = /([[:punct:]\s]*)(\w+)([[:punct:]]*)(\s*)/
 
     # text - String text to separate
     def initialize(text)
-      @original_text = text
+      @text = text
 
       analyze
     end
 
     def leading_space
-      original_text.match(/(\s*)/).captures[0]
+      text.match(/(\s*)/).captures[0]
     end
 
-    def whitespace
+    def space
       [leading_space] + words_data.map {|wd| wd[:space_post] }
+    end
+
+    def words
+      words_data.map {|wd| wd[:word] }
     end
 
     private
 
     def scanned_text
-      original_text.scan(ANALYSIS)
+      text.scan(ANALYSIS)
     end
 
     def analyze

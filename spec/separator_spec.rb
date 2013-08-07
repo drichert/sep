@@ -5,10 +5,11 @@ describe Sep::Separator do
 
   let(:sep) { described_class.new(text) }
 
-  describe "#original_text" do
-    subject { sep.original_text }
+  describe "#text" do
+    subject { sep.text }
 
     it { should be_a(String) }
+    it { should == text }
   end
 
   describe "#words_data" do
@@ -37,6 +38,11 @@ describe Sep::Separator do
   end
 
   describe "#words" do
+    let(:words) { described_class.new(text).words }
+
+    subject { words.slice(0..4) }
+
+    it { should == %w{THE MEANING OF ALCHEMY The} }
   end
 
   describe "#leading_space" do
@@ -45,11 +51,11 @@ describe Sep::Separator do
     it { should == "\n\n" }
   end
 
-  describe "#whitespace" do
-    let(:whitespace) { described_class.new(text).whitespace }
+  describe "#space" do
+    let(:space) { described_class.new(text).space }
 
     describe "0..4" do
-      subject { whitespace.slice(0..4) }
+      subject { space.slice(0..4) }
 
       it { should match_array(["\n\n", " ", " ", " ", "\n\n\n"]) }
     end
