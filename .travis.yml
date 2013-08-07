@@ -1,0 +1,11 @@
+language: ruby
+script: "bundle exec rake spec"
+notifications:
+  email: 
+    recipients: 
+      - dan.richert@gmail.com
+    on_success: never
+    on_failure: always
+rvm:
+  - 1.9.3-p448
+  - 2.0.0-p247
