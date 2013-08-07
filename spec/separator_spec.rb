@@ -46,8 +46,12 @@ describe Sep::Separator do
   end
 
   describe "#whitespace" do
-    subject { described_class.new(text).whitespace.slice(0, 10) }
+    let(:whitespace) { described_class.new(text).whitespace }
 
-    it { should match_array(["\n\n", "\n\n", "\n"]) }
+    describe "0..4" do
+      subject { whitespace.slice(0..4) }
+
+      it { should match_array(["\n\n", " ", " ", " ", "\n\n\n"]) }
+    end
   end
 end
